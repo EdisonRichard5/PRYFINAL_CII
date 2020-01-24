@@ -1,7 +1,7 @@
-# SpringBoot-Invoice-System
-Simple invoice management system built with SpringBoot 2, Spring JPA, Spring Security, Thymeleaf, jQuery, Bootstrap 4 and FontsAwesome.
+# SpringBoot-Factura
+Sistema de facturación con: SpringBoot 2, Spring JPA, Spring Security, Thymeleaf, jQuery, Bootstrap 4 y FontsAwesome.
 
-## Default users
+## Usuarios
 
 -With ROLE_ADMIN:
 * username: admin

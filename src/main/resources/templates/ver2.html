@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="/layout/layout :: head">
+</head>
+<body>
+
+	<header th:replace="/layout/layout :: header"></header>
+
+	<div class="container py-4">
+		<div class="card bg-light">
+			<div class="card-header" th:text="${title}"></div>
+			<div class="card-body">
+
+				<a sec:authorize="hasRole('ROLE_ADMIN')"
+					th:href="@{/inventario/form2/} + ${employee.id}"
+					class="btn btn-primary btn-xs" th:text="'Crear Inventario'"></a> <img
+					th:if="${#strings.length(employee.photo) > 0}"
+					th:alt="@{/upload/${employee.name}}"
+					th:src="@{'/upload/' + ${employee.photo}}"
+					class="img-thumbnail rounded float-left" style="max-width: 25%"></img>
+
+				<ul class="list-group my-4">
+					<li class="list-group-item active" th:text="${employee.name}"></li>
+					<li class="list-group-item" th:text="${employee.surname}"></li>
+					<li class="list-group-item" th:text="${employee.email}"></li>
+					<li class="list-group-item" th:text="${employee.createdAt}"></li>
+				</ul>
+
+				<div th:if="${#lists.isEmpty(employee.inventories)}"
+					class="alert alert-info my-4"
+					th:text="'No hay inventarios asignados para el empledos ' + ${employee.name}"></div>
+				<table th:if="${not #lists.isEmpty(employee.inventories)}"
+					class="table table-bordered table-striped my-4">
+					<thead class="thead-dark">
+						<tr>
+							<th>Folio</th>
+							<th>Descripción</th>
+							<th>Fecha</th>
+							<th>Total</th>
+							<th sec:authorize="hasRole('ROLE_ADMIN')">Ver</th>
+							<th sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="inventory : ${employee.inventories}">
+							<td th:text="${inventory.id}"></td>
+							<td th:text="${inventory.description}"></td>
+							<td th:text="${inventory.createdAt}"></td>
+							<td th:text="${inventory.total}"></td>
+							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
+								th:href="@{'/inventario/ver2/' + ${inventory.id}}"
+								class="btn btn-xs btn-primary"><i class="material-icons">search</i></a></td>
+							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
+								th:href="@{'/inventario/eliminar2/' + ${inventory.id}}"
+								class="btn btn-xs btn-danger"
+								onclick="return confirm('Â¿Seguro que quieres eliminar el inventario?')"><i
+									class="material-icons">delete</i></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="/layout/layout :: footer"></footer>
+
+</body>
+</html>

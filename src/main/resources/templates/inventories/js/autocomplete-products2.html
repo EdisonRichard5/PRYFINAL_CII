@@ -39,7 +39,7 @@
 					line = line.replace(/{PRICE}/g, ui.item.price);
 					$("#loadProductItems tbody").append(line);
 					
-					//Borramos el contenido del cuadro de búsqueda
+					//Borramos el contenido del cuadro de busqueda
 					$("#search_product").val("");
 					
 					//Calculamos el importe del producto
@@ -55,7 +55,7 @@
 		
 		var itemsHelper = {
 				calculatePrice: function(id, price, quantity){
-					$("#total_price_" + id).html(parseInt(price) * parseInt(quantity));
+					$("#total_price_" + id).html(parseFloat(price) * parseInt(quantity));
 					this.calculateTotal();
 				},
 				hasProduct: function(id){
@@ -79,9 +79,9 @@
 				calculateTotal: function(){
 					var total = 0;
 					$("span[id^='total_price_']").each(function(){
-						total += parseInt($(this).html());
+						total += parseFloat($(this).html());
 					});
-					$("#total").html(total);
+					$("#total").html(total.toFixed(2));
 				}
 		}
 	

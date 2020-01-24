@@ -45,7 +45,7 @@ public class InventoryController {
 	Inventory inventory = new Inventory();
 	inventory.setEmployee(employee);
 	model.put("inventory", inventory);
-	model.put("title", "Crear inventario");
+	model.put("title2", "Crear inventario");
 
 	return "/inventories/form2";
 	}
@@ -66,7 +66,7 @@ public class InventoryController {
 			Model model) {
 		
 		if(result.hasErrors()) {
-			model.addAttribute("title", "Crear Inventario");
+			model.addAttribute("title2", "Crear Inventario");
 			return "/inventories/form2";
 		}
 		if(itemId == null || itemId.length == 0) {
@@ -98,7 +98,7 @@ public class InventoryController {
 			return "redirect:/empleados";
 		}
 		model.addAttribute("inventory", inventory);
-		model.addAttribute("title", "Inventario:".concat(inventory.getDescription()));
+		model.addAttribute("title2", "Inventario:".concat(inventory.getDescription()));
 		return "/inventories/view";
 	}
 

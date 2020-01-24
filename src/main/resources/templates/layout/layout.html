@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head">
 	<meta charset="UTF-8"></meta>
-	<title th:text="'Spring Boot - ' + ${title}"></title>
+	<title th:text="'Proyecto Ferreteria - ' + ${title}"></title>
+	<title th:text="'Proyecto Ferreteria - ' + ${title2}"></title>
 	
 	<!-- CSS -->
 	<link rel="stylesheet"
@@ -44,12 +45,12 @@
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link" href="#"
-						th:href="@{/clientes}" th:text="#{text.layout.clients}"></a></li>
+						th:href="@{/clientes/}" th:text="#{text.layout.clients}"></a></li>
 				</ul>
 				
-				<ul class="navbar-nav mr-auto">
+					<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link" href="#"
-						th:href="@{/empleados/}" th:text="#{text.layout.employees}"></a></li>
+						th:href="@{/empleados/}" th:text="Empleados"></a></li>
 				</ul>
 				
 				

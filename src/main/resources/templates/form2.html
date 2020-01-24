@@ -7,7 +7,7 @@
 
 <div class="card border-primary text-center">
 		<div class="card bg-dark text-white">
-			<div class="card-header" th:text="${title}"></div>
+			<div class="card-header" th:text="${title2}"></div>
 			<div class="card-body">
 				<div th:object="${employee}" th:remove="tag">
 					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"

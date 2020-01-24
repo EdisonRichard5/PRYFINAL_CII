@@ -89,7 +89,7 @@ public class EmployeeController {
 			return "redirect:/empleados";
 		}else {
 			model.put("employee", employee);
-			model.put("title", "Detalles empleado - " + employee.getName());
+			model.put("title2", "Detalles empleado - " + employee.getName());
 		}
 		return "/ver2";
 	}
@@ -123,7 +123,7 @@ public class EmployeeController {
 		Pageable pageRequest = PageRequest.of(page, 3);	//Spring Boot 2
 		Page<Employee> employees = clientService.findAll(pageRequest);
 		PageRender<Employee> render = new PageRender<>("/employees", employees);
-		model.addAttribute("title", messageSource.getMessage("text.list.title", null, locale));
+		model.addAttribute("title2", "Listado de Empleado");
 		model.addAttribute("employees", employees);
 		model.addAttribute("page", render);
 		return "/list2";
@@ -133,7 +133,7 @@ public class EmployeeController {
 	@RequestMapping(value="/form2")
 	public String crear(Map<String, Object> model) {
 		Employee employee = new Employee();
-		model.put("title", "Formulario de empleado");
+		model.put("title2", "Formulario de empleado");
 		model.put("employee", employee);
 		return "/form2";
 	}
@@ -146,7 +146,7 @@ public class EmployeeController {
 			if(id > 0) {
 				Employee employee = clientService.findOne(id);
 				if(employee != null) {
-					model.put("title", "Editar empleado");
+					model.put("title2", "Editar empleado");
 					model.put("employee", employee);
 					return "/form2";
 				}else {
@@ -164,7 +164,7 @@ public class EmployeeController {
 		@RequestMapping(value="/form2", method=RequestMethod.POST)
 		public String guardar(@Valid Employee employee, BindingResult result, Model model, @RequestParam("file") MultipartFile photo, RedirectAttributes flash, SessionStatus sessionStatus) {
 			if(result.hasErrors()) {
-				model.addAttribute("title", "Formulario de empleado");
+				model.addAttribute("title2", "Formulario de empleado");
 				return "/form2";
 			}
 			if(!photo.isEmpty()) {

@@ -55,7 +55,7 @@
 		
 		var itemsHelper = {
 				calculatePrice: function(id, price, quantity){
-					$("#total_price_" + id).html(parseInt(price) * parseInt(quantity));
+					$("#total_price_" + id).html(parseFloat((price).toFixed(2)) * parseInt(quantity));
 					this.calculateTotal();
 				},
 				hasProduct: function(id){
@@ -79,7 +79,7 @@
 				calculateTotal: function(){
 					var total = 0;
 					$("span[id^='total_price_']").each(function(){
-						total += parseInt($(this).html());
+						total += parseFloat($(this).html());
 					});
 					$("#total").html(total);
 				}

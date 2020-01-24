@@ -12,13 +12,14 @@
 			<div class="card-header" th:text="${title}"></div>
 			<div class="card-body">
 
-				<a sec:authorize="hasRole('ROLE_ADMIN')"
+					<a sec:authorize="hasRole('ROLE_ADMIN')"
 					th:href="@{/inventario/form2/} + ${employee.id}"
 					class="btn btn-primary btn-xs" th:text="'Crear Inventario'"></a> <img
 					th:if="${#strings.length(employee.photo) > 0}"
-					th:alt="@{/upload/${employee.name}}"
-					th:src="@{'/upload/' + ${employee.photo}}"
+					th:alt="@{/uploads/${employee.name}}"
+					th:src="@{'/uploads/' + ${employee.photo}}"
 					class="img-thumbnail rounded float-left" style="max-width: 25%"></img>
+
 
 				<ul class="list-group my-4">
 					<li class="list-group-item active" th:text="${employee.name}"></li>

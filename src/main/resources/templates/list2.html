@@ -8,7 +8,7 @@
 
 	<div class="container py-4">
 		<div class="card bg-light">
-			<div class="card-header" th:text="${title}"></div>
+			<div class="card-header" th:text="${title2}"></div>
 			<div class="card-body">
 				<div class="card-title">
 					<a th:href="@{/form2}"
@@ -20,11 +20,11 @@
 					<thead class="thead-inverse">
 						<tr>
 							<th sec:authorize="hasRole('ROLE_USER')">Id</th>
-							<th th:text="#{text.employees.name}"></th>
-							<th th:text="#{text.employees.surname}"></th>
-							<th th:text="#{text.employees.email}"></th>
-							<th th:text="#{text.employees.createdAt}"></th>
-							<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{text.list.billing}">Realizar Inventario</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Email</th>
+							<th>Fecha de nacimiento</th>
+							<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="Inventario"> </th>
 							<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{text.list.edit}">Editar</th>
 							<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{text.list.delete}">Eliminar</th>
 						</tr>
@@ -40,7 +40,7 @@
 							<td th:text="${employee.createdAt}"></td>
 							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
 								th:href="@{/inventario/form2/} + ${employee.id}"
-								class="btn btn-success btn-xs"><i class="material-icons">payment</i></a></td>
+								class="btn btn-success btn-xs"><i class="material-icons">content_paste</i></a></td>
 							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
 								th:href="@{/form2/} + ${employee.id}"
 								class="btn btn-primary btn-xs"> <i class="material-icons">edit</i></a></td>

@@ -8,7 +8,7 @@
 
 	<div class="container py-4">
 		<div class="card bg-light text-dark">
-			<div class="card-header" th:text="${title}"></div>
+			<div class="card-header" th:text="${title2}"></div>
 			<div class="card-body">
 				<h4 class="card-title"></h4>
 				<a th:href="@{'/ver2/' + ${inventory.employee.id}}"
@@ -69,7 +69,7 @@
 
 					<div class="form-group row">
 						<div class="col-sm-6">
-							<input type="submit" th:value="${title}" class="btn btn-success"></input>
+							<input type="submit" th:value="${title2}" class="btn btn-success"></input>
 						</div>
 					</div>
 				</form>

@@ -36,7 +36,7 @@ function load(){
 						},
 						title: {
 							display: true,
-							text: 'Número de casos por paciente'
+							text: 'Reporte de Ventas'
 						},
 						animation: {
 							animateScale: true,

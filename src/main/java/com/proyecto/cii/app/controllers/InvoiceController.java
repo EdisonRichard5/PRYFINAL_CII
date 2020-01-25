@@ -120,7 +120,7 @@ public class InvoiceController {
 	@GetMapping(value = "/report")
 	public String report(Model model) {		
 		model.addAttribute("title", "report");
-		return "factura/report";
+		return "/invoices/report";
 	}
 
 	@GetMapping(value = "/loadData", produces="application/json")

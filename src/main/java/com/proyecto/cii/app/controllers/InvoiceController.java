@@ -126,7 +126,6 @@ public class InvoiceController {
 	@GetMapping(value = "/loadData", produces="application/json")
 	public @ResponseBody List<LlaveValor> loadData() {	
 		List<LlaveValor> lista =  clientService.countproduct();
-		System. out. println("lista");
 		return lista;
 	}
 

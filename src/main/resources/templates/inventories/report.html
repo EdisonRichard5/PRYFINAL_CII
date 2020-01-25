@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+</head>
+<body>
+	<header th:replace="/layout/layout :: header"></header>
+
+	<div class="whole-wrap">
+		<div class="container box_1170">
+			<div class="section-top-border">
+				<div class="welcome_docmed_area">
+					<div class="row">
+						
+						<div class="col-xl-7 col-lg-7">
+							<div class="welcome_docmed_info">
+								<h2 th:text="${title}"></h2>							
+
+
+								<div class="container">
+									<div id="canvas-holder">
+										<canvas id="chart-area"></canvas>
+									</div>					
+								</div>			
+
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+<footer th:replace="/layout/layout :: footer"></footer>
+
+	<script th:src="@{/js/inventories.js}"></script>
+
+</body>
+</html>

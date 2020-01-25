@@ -36,4 +36,5 @@ public interface IClientService {
 
 	public Client fetchByIdWithInvoice(Long id);
 	public List<LlaveValor> countproduct();
+	
 }

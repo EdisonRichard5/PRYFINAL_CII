@@ -1,6 +1,12 @@
 package com.proyecto.cii.app.models.service;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.StoredProcedureQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,6 +20,7 @@ import com.proyecto.cii.app.models.dao.IProductDao;
 import com.proyecto.cii.app.models.entity.Employee;
 import com.proyecto.cii.app.models.entity.Inventory;
 import com.proyecto.cii.app.models.entity.Product;
+import com.proyecto.cii.app.reporting.LlaveValor;
 
 @Service
 public class EmployeeServiceImpl implements IEmployeeService {
@@ -26,7 +33,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	
 	@Autowired
 	private InventoryDao invoiceDao;
-	
+	@PersistenceContext
+	private EntityManager em;
 
 	@Override
 	@Transactional(readOnly=true)
@@ -101,7 +109,15 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	public Inventory fetchByIdWithClientWithInvoiceLineWithProduct(Long id) {
 		return invoiceDao.fetchByIdWithClientWithInvoiceLineWithProduct(id);
 	}
-
+	@Override	
+	public List<LlaveValor> countproduct() {		
+		StoredProcedureQuery consulta = em.createStoredProcedureQuery("inventario");
+		consulta.execute();
+		List<Object[]> datos = consulta.getResultList();
+		return datos.stream()
+				.map(r -> new LlaveValor((String)r[1], (BigDecimal)r[0]))
+				.collect(Collectors.toList());		
+	}
 
 
 }

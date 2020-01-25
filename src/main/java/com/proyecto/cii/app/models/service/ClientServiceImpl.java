@@ -125,4 +125,5 @@ public class ClientServiceImpl implements IClientService {
 				.map(r -> new LlaveValor((String)r[1], (BigDecimal)r[0]))
 				.collect(Collectors.toList());		
 	}
+	
 }

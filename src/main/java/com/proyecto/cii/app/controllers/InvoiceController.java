@@ -25,6 +25,7 @@ import com.proyecto.cii.app.models.entity.Invoice;
 import com.proyecto.cii.app.models.entity.InvoiceLine;
 import com.proyecto.cii.app.models.entity.Product;
 import com.proyecto.cii.app.models.service.IClientService;
+import com.proyecto.cii.app.reporting.LlaveValor;
 
 @Controller
 @RequestMapping("/factura")
@@ -115,6 +116,18 @@ public class InvoiceController {
 			flash.addAttribute("error", "La factura no existe");
 			return "redirect:/clientes";
 		}
+	}
+	@GetMapping(value = "/report")
+	public String report(Model model) {		
+		model.addAttribute("title", "report");
+		return "factura/report";
+	}
+
+	@GetMapping(value = "/loadData", produces="application/json")
+	public @ResponseBody List<LlaveValor> loadData() {	
+		List<LlaveValor> lista =  clientService.countproduct();
+		System. out. println("lista");
+		return lista;
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.proyecto.cii.app.models.dao;
 
 import org.springframework.data.jpa.repository.Query;
+import com.proyecto.cii.app.reporting.LlaveValor;
 import org.springframework.data.repository.CrudRepository;
 
 import com.proyecto.cii.app.models.entity.Invoice;

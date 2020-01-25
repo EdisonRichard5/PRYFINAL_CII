@@ -1,6 +1,7 @@
 package com.proyecto.cii.app.reporting;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class LlaveValor implements Serializable{
@@ -9,16 +10,28 @@ public class LlaveValor implements Serializable{
 
 	private String llave;
 
-	private BigInteger valor;
+	private BigDecimal valor;
 
 	public LlaveValor() {		
 	}
 
 
 
-	public LlaveValor(String llave, BigInteger valor) {
+	public LlaveValor(String llave, BigDecimal valor) {
 		super();
 		this.llave = llave;
+		this.valor = valor;
+	}
+
+
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+
+
+	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
 
@@ -32,11 +45,5 @@ public class LlaveValor implements Serializable{
 		this.llave = llave;
 	}
 
-	public BigInteger getValor() {
-		return valor;
-	}
-
-	public void setValor(BigInteger valor) {
-		this.valor = valor;
-	}
+	
 }

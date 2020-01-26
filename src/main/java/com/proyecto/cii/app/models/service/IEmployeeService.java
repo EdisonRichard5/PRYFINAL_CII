@@ -9,6 +9,7 @@ import com.proyecto.cii.app.models.entity.Employee;
 import com.proyecto.cii.app.models.entity.Inventory;
 import com.proyecto.cii.app.models.entity.Product;
 import com.proyecto.cii.app.reporting.LlaveValor;
+import com.proyecto.cii.app.reporting.LlaveValor2;
 
 public interface IEmployeeService {
 	public List<Employee> findAll();
@@ -35,4 +36,5 @@ public interface IEmployeeService {
 
 	public Employee fetchByIdWithInvoice(Long id);
 	public List<LlaveValor> countproduct();
+	public List<LlaveValor2> countdate(Integer id);
 }

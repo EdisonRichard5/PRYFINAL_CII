@@ -1,10 +1,12 @@
 package com.proyecto.cii.app.models.service;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
+import javax.persistence.ParameterMode;
 import javax.persistence.PersistenceContext;
 import javax.persistence.StoredProcedureQuery;
 
@@ -21,6 +23,7 @@ import com.proyecto.cii.app.models.entity.Employee;
 import com.proyecto.cii.app.models.entity.Inventory;
 import com.proyecto.cii.app.models.entity.Product;
 import com.proyecto.cii.app.reporting.LlaveValor;
+import com.proyecto.cii.app.reporting.LlaveValor2;
 
 @Service
 public class EmployeeServiceImpl implements IEmployeeService {
@@ -118,6 +121,16 @@ public class EmployeeServiceImpl implements IEmployeeService {
 				.map(r -> new LlaveValor((String)r[1], (BigDecimal)r[0]))
 				.collect(Collectors.toList());		
 	}
-
+	@Override	
+	public List<LlaveValor2> countdate(Integer id) {		
+		StoredProcedureQuery consulta = em.createStoredProcedureQuery("inventarioMes");
+		consulta.registerStoredProcedureParameter("Id", Integer.class, ParameterMode.IN);
+		consulta.setParameter("Id", id);				
+		consulta.execute();
+		List<Object[]> datos = consulta.getResultList();
+		return datos.stream()
+				.map(r -> new LlaveValor2((String)r[0],(String)r[2], (BigDecimal)r[1],(Date)r[3]))
+				.collect(Collectors.toList());		
+	}
 
 }

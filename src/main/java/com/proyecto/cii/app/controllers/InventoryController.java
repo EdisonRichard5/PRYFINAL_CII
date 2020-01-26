@@ -26,6 +26,7 @@ import com.proyecto.cii.app.models.entity.InventoryLine;
 import com.proyecto.cii.app.models.entity.Product;
 import com.proyecto.cii.app.models.service.IEmployeeService;
 import com.proyecto.cii.app.reporting.LlaveValor;
+import com.proyecto.cii.app.reporting.LlaveValor2;
 
 @Controller
 @RequestMapping("/inventario")
@@ -127,6 +128,17 @@ public class InventoryController {
 	@GetMapping(value = "/loadData", produces="application/json")
 	public @ResponseBody List<LlaveValor> loadData() {	
 		List<LlaveValor> lista =  clientService.countproduct();
+		return lista;
+	}
+	@GetMapping(value = "/report2")
+	public String report2(Model model) {		
+		model.addAttribute("title", "report2");
+		return "/inventories/report2";
+	}
+
+	@GetMapping(value = "/loadData/{id}", produces="application/json")
+	public @ResponseBody List<LlaveValor2> loadData(@PathVariable(value = "id") Integer id) {	
+		List<LlaveValor2> lista = clientService.countdate(id);
 		return lista;
 	}
 

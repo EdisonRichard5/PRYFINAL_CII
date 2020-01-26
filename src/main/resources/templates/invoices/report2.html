@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+</head>
+<body>
+	<header th:replace="/layout/layout :: header"></header>
+
+
+								<h2 th:text="${title}"></h2>							
+
+
+										<canvas id="chart-area"></canvas>
+													
+								
+	
+<footer th:replace="/layout/layout :: footer"></footer>
+
+	<script th:src="@{/js/fecha.js}"></script>
+
+</body>
+</html>

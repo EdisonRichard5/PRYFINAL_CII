@@ -5,9 +5,7 @@ function load(){
 		dataType : 'json',
 		contentType : 'application/json',
 		success : function(response){
-			
 			console.log(response);	
-			
 			var toData = [];
 			var toLabels = [];
 			var toColors = [];

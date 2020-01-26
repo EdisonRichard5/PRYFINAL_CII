@@ -2,8 +2,7 @@ package com.proyecto.cii.app.models.service;
 
 import java.util.List;
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.ArrayList;
+import java.util.Date;
 
 import java.util.stream.Collectors;
 
@@ -25,6 +24,7 @@ import com.proyecto.cii.app.models.entity.Client;
 import com.proyecto.cii.app.models.entity.Invoice;
 import com.proyecto.cii.app.models.entity.Product;
 import com.proyecto.cii.app.reporting.LlaveValor;
+import com.proyecto.cii.app.reporting.LlaveValor2;
 
 @Service
 public class ClientServiceImpl implements IClientService {
@@ -123,6 +123,17 @@ public class ClientServiceImpl implements IClientService {
 		List<Object[]> datos = consulta.getResultList();
 		return datos.stream()
 				.map(r -> new LlaveValor((String)r[1], (BigDecimal)r[0]))
+				.collect(Collectors.toList());		
+	}
+	@Override	
+	public List<LlaveValor2> countdate(Integer id) {		
+		StoredProcedureQuery consulta = em.createStoredProcedureQuery("ventaMes");
+		consulta.registerStoredProcedureParameter("Id", Integer.class, ParameterMode.IN);
+		consulta.setParameter("Id", id);				
+		consulta.execute();
+		List<Object[]> datos = consulta.getResultList();
+		return datos.stream()
+				.map(r -> new LlaveValor2((String)r[0],(String)r[2], (BigDecimal)r[1],(Date)r[3]))
 				.collect(Collectors.toList());		
 	}
 	

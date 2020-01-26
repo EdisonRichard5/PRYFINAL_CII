@@ -26,6 +26,7 @@ import com.proyecto.cii.app.models.entity.InvoiceLine;
 import com.proyecto.cii.app.models.entity.Product;
 import com.proyecto.cii.app.models.service.IClientService;
 import com.proyecto.cii.app.reporting.LlaveValor;
+import com.proyecto.cii.app.reporting.LlaveValor2;
 
 @Controller
 @RequestMapping("/factura")
@@ -126,6 +127,17 @@ public class InvoiceController {
 	@GetMapping(value = "/loadData", produces="application/json")
 	public @ResponseBody List<LlaveValor> loadData() {	
 		List<LlaveValor> lista =  clientService.countproduct();
+		return lista; 
+	}
+	@GetMapping(value = "/report2")
+	public String report2(Model model) {		
+		model.addAttribute("title", "report2");
+		return "/invoices/report2";
+	}
+
+	@GetMapping(value = "/loadData/{id}", produces="application/json")
+	public @ResponseBody List<LlaveValor2> loadData(@PathVariable(value = "id") Integer id) {	
+		List<LlaveValor2> lista = clientService.countdate(id);
 		return lista;
 	}
 

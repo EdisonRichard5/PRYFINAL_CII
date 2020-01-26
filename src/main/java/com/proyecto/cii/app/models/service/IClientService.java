@@ -10,6 +10,7 @@ import com.proyecto.cii.app.models.entity.Client;
 import com.proyecto.cii.app.models.entity.Invoice;
 import com.proyecto.cii.app.models.entity.Product;
 import com.proyecto.cii.app.reporting.LlaveValor;
+import com.proyecto.cii.app.reporting.LlaveValor2;
 
 public interface IClientService {
 	public List<Client> findAll();
@@ -36,5 +37,6 @@ public interface IClientService {
 
 	public Client fetchByIdWithInvoice(Long id);
 	public List<LlaveValor> countproduct();
+	public List<LlaveValor2> countdate(Integer id);
 	
 }

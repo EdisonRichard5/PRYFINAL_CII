@@ -2,7 +2,6 @@ package com.proyecto.cii.app.reporting;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 public class LlaveValor implements Serializable{
 

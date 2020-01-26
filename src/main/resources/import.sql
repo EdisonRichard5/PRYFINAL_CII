@@ -1,3 +1,12 @@
+
+/* EMPLOYEES */
+INSERT INTO `employees` (`id`, `created_at`, `email`, `name`, `photo`, `phone`) VALUES
+(1, '1993-09-05', 'richardnicedj@gmail.com', 'Edison', '', '09-58978518'),
+(2, '1995-01-05', 'paul@gmail.com', 'Paul', '', '09-85746525'),
+(3, '2000-01-02', 'raul@gmail.com', 'Raul', '', '09-69587401');
+
+
+
 /* CLIENTS */
 INSERT INTO clients(id, name, surname, email, created_at, photo) VALUES (1, 'Antonio', 'Lopez Guzmán', 'alg@gmail.com', '2012-01-29', '');
 INSERT INTO clients(id, name, surname, email, created_at, photo) VALUES (2, 'Laura', 'Martin Bonilla', 'lmb@gmail.com', '2015-06-2', '');
@@ -100,6 +109,21 @@ INSERT INTO products(name, price, created_at) VALUES ('Reflector 20w Maviju', 14
 INSERT INTO products(name, price, created_at) VALUES ('Reflector 42w Maviju', 22, NOW());
 INSERT INTO products(name, price, created_at) VALUES ('Reflector 50w Maviju', 36, NOW());
 INSERT INTO products(name, price, created_at) VALUES ('Reflector 100w Maviju', 52, NOW());
+
+
+/* INVENTORIES */
+
+INSERT INTO `inventories` (`id`, `created_at`, `description`, `information`, `employee_id`) VALUES
+(1, '2020-01-25', 'Compra 4', '', 1),
+(2, '2020-01-25', 'Compra', 'por pagar', 3),
+(3, '2020-02-26', 'Proforma', 'presupuesto', 2),
+(4, '2020-03-26', 'Proforma', 'compra', 2),
+(5, '2020-04-26', 'Proforma', 'Compra', 3),
+(6, '2020-05-26', 'Compra', 'Compra', 2),
+(7, '2020-01-26', 'Proforma', 'Compra', 1);
+
+
+
 
 
 /* INVOICES */

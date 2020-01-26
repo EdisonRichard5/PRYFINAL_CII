@@ -21,8 +21,8 @@
 						<tr>
 							<th sec:authorize="hasRole('ROLE_USER')">Id</th>
 							<th>Nombre</th>
-							<th>Apellido</th>
 							<th>Email</th>
+							<th>Telefono</th>
 							<th>Fecha de nacimiento</th>
 							<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="Inventario"> </th>
 							<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{text.list.edit}">Editar</th>
@@ -35,8 +35,8 @@
 								th:href="@{/ver2/} + ${employee.id}" th:text="${employee.id}"
 								class="btn btn-primary btn-xs"></a></td>
 							<td th:text="${employee.name}"></td>
-							<td th:text="${employee.surname}"></td>
 							<td th:text="${employee.email}"></td>
+							<td th:text="${employee.phone}"></td>
 							<td th:text="${employee.createdAt}"></td>
 							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
 								th:href="@{/inventario/form2/} + ${employee.id}"

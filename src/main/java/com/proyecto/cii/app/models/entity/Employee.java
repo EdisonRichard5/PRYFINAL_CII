@@ -36,7 +36,7 @@ public class Employee implements Serializable{
 	private String name;
 
 	@NotEmpty
-	private String surname;
+	private String phone;
 
 	@NotEmpty
 	@Email
@@ -80,12 +80,14 @@ public class Employee implements Serializable{
 		this.name = name;
 	}
 
-	public String getSurname() {
-		return surname;
+ 
+
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getEmail() {
@@ -128,7 +130,7 @@ public class Employee implements Serializable{
 
 	@Override
 	public String toString() {
-		return name + " " + surname;
+		return name + " " + phone;
 	}
 
 

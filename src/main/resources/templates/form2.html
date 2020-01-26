@@ -2,8 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout/layout :: head">
 </head>
-<body>
-	<header th:replace="/layout/layout :: header"></header>
+<body> 
 
 <div class="card border-primary text-center">
 		<div class="card bg-dark text-white">
@@ -18,30 +17,37 @@
 			<div style="text-align:center"> 
 			 </div>
 			 
+			 			<div style="text-align:center">
+<img src="http://www.ferreteriaflorencia.com/images/noticias/clientes-para-su-negocio1.jpg"
+			 width="300" height="300">
+			 </div>
 			 <br><br>
 				<form th:action="@{/form2}" th:object="${employee}" method="post" enctype="multipart/form-data">
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Nombre</label>
 						<div class="col-sm-6">
-							<input type="text" th:field="*{name}" class="form-control"
+							<input type="text" th:field="*{name}" placeholder="Nombre" class="form-control"
 								th:errorclass="'form-control alert-danger'" /> <small
 								th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-								class="form-text text-danger"></small>
+								class="form-text text-danger" ></small>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Apellidos</label>
+						<label class="col-sm-2 col-form-label">Celular</label>
 						<div class="col-sm-6">
-							<input type="text" th:field="*{surname}" class="form-control"
+						
+						 
+							<input type="tel" name="phone" pattern="[0-9]{2}-[0-9]{8}" required
+							 th:field="*{phone}" placeholder="formato: 09-00000000" class="form-control"
 								th:errorclass="'form-control alert-danger'" /> <small
-								th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"
+								th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"
 								class="form-text text-danger"></small>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Email</label>
 						<div class="col-sm-6">
-							<input type="text" th:field="*{email}" class="form-control"
+							<input type="text" th:field="*{email}" placeholder="Email" class="form-control"
 								th:errorclass="'form-control alert-danger'" /> <small
 								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
 								class="form-text text-danger"></small>
@@ -50,7 +56,7 @@
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Fecha</label>
 						<div class="col-sm-6">
-							<input type="text" th:field="*{createdAt}" class="form-control"
+							<input type="text" th:field="*{createdAt}" placeholder="formato: dd-mm-aa" class="form-control"
 								th:errorclass="'form-control alert-danger'" /> <small
 								th:if="${#fields.hasErrors('createdAt')}"
 								th:errors="*{createdAt}" class="form-text text-danger"></small>

@@ -15,10 +15,7 @@
 						<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
 					</ul>
 				</div>
-			<div style="text-align:center">
-<img src="http://www.ferreteriaflorencia.com/images/noticias/clientes-para-su-negocio1.jpg"
-			 width="300" height="300">
-			 </div>
+
 			 
 			 <br><br>
 				<form th:action="@{/form}" th:object="${client}" method="post" enctype="multipart/form-data">

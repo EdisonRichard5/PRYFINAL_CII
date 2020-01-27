@@ -33,7 +33,7 @@ public class Invoice implements Serializable {
 	private Long id;
 	
 	@NotEmpty
-	private String description;
+	private String namemployee;
 	
 	private String status;
 
@@ -63,13 +63,17 @@ public class Invoice implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
+ 
+	
   
+	public String getNamemployee() {
+		return namemployee;
+	}
+
+	public void setNamemployee(String namemployee) {
+		this.namemployee = namemployee;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -113,7 +117,7 @@ public class Invoice implements Serializable {
 
 	@Override
 	public String toString() {
-		return id + " " + description;
+		return id + " " + namemployee;
 	}
 	
 	

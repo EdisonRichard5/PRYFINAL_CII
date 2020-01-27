@@ -24,16 +24,25 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-3 col-form-label" th:text="'Descripción'"></label>
+						<label class="col-sm-3 col-form-label" th:text="'Proveedor'"></label>
 						<div class="col-sm-6">
-							<input type="text" th:field="*{description}" class="form-control"
-								th:errorclass="'form-control is-invalid'"></input>
-							<div class="invalid-feedback"
-								th:if="${#fields.hasErrors('description')}"
-								th:errors="*{description}"></div>
+							<select th:field="*{provider}"  required>
+							<option value=0>--Seleccione--</option>  
+							      <option value="Canelsa">Canelsa</option>
+							    <option value="Dewalt">Dewalt</option>
+							    <option value="Eneco">Eneco</option>
+							  	<option value="Evergreen">Evergreen</option>
+							    <option value="Garley">Garley', </option>
+							  <option value="Maviju">Maviju</option>
+							    <option value="Nacional">Nacional</option>
+							  <option value="Philips">Philips</option>
+							    <option value="Schneider">Schneider</option>
+							    <option value="Silvania">Silvania </option>
+							    <option value="Stanley">Stanley</option>
+							     
+						</select>
 						</div>
 					</div>
-					
 						<div class="form-group row">
 						<label class="col-sm-3 col-form-label" th:text="'Categoria'"></label>
 						<div class="col-sm-6">

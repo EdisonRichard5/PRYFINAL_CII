@@ -100,7 +100,7 @@ public class InventoryController {
 			return "redirect:/empleados";
 		}
 		model.addAttribute("inventory", inventory);
-		model.addAttribute("title2", "Inventario:".concat(inventory.getDescription()));
+		model.addAttribute("title2", "Inventario:".concat(inventory.getProvider()));
 		return "/inventories/view";
 	}
 

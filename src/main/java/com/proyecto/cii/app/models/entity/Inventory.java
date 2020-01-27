@@ -33,7 +33,7 @@ public class Inventory implements Serializable {
 	private Long id;
 	
 	@NotEmpty
-	private String description;
+	private String provider;
 
 	private String category; 
 
@@ -64,13 +64,16 @@ public class Inventory implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
  
+	
+	public String getProvider() {
+		return provider;
+	}
+
+	public void setProvider(String provider) {
+		this.provider = provider;
+	}
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -116,7 +119,7 @@ public class Inventory implements Serializable {
 
 	@Override
 	public String toString() {
-		return id + " " + description;
+		return id + " " + provider;
 	}
 	
 	

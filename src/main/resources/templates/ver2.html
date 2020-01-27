@@ -36,7 +36,7 @@
 					<thead class="thead-dark">
 						<tr>
 							<th>Folio</th>
-							<th>Descripción</th>
+							<th>Proveedor</th>
 							<th>Categoria</th>
 							<th>Fecha</th>
 							<th>Total</th>
@@ -47,7 +47,7 @@
 					<tbody>
 						<tr th:each="inventory : ${employee.inventories}">
 							<td th:text="${inventory.id}"></td>
-							<td th:text="${inventory.description}"></td>
+							<td th:text="${inventory.provider}"></td>
 							<td th:text="${inventory.category}"></td>
 							<td th:text="${inventory.createdAt}"></td>
 							<td th:text="${inventory.total}"></td>

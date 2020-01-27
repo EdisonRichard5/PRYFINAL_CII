@@ -21,10 +21,12 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.proyecto.cii.app.models.entity.Client;
+import com.proyecto.cii.app.models.entity.Employee;
 import com.proyecto.cii.app.models.entity.Invoice;
 import com.proyecto.cii.app.models.entity.InvoiceLine;
 import com.proyecto.cii.app.models.entity.Product;
 import com.proyecto.cii.app.models.service.IClientService;
+import com.proyecto.cii.app.models.service.IEmployeeService;
 import com.proyecto.cii.app.reporting.LlaveValor;
 import com.proyecto.cii.app.reporting.LlaveValor2;
 
@@ -36,14 +38,19 @@ public class InvoiceController {
 
 	@Autowired
 	private IClientService clientService;
+    private IEmployeeService srvProveedor;
 
-	@GetMapping("/form/{clientId}")
+    @GetMapping("/form/{clientId}")
 	public String crear(@PathVariable(value="clientId") Long clientId, Map<String, Object> model, RedirectAttributes flash) {
 		Client client = clientService.findOne(clientId);
 		if(client == null) {
 			flash.addFlashAttribute("error", "No existe ese cliente");
 			return "redirect:/clients";
 		}
+		
+	//	List<Employee> employee = srvProveedor.findAll();
+		//model.put("employee", employee );  
+        
 		Invoice invoice = new Invoice();
 		invoice.setClient(client);
 		model.put("invoice", invoice);
@@ -100,7 +107,7 @@ public class InvoiceController {
 			return "redirect:/clientes";
 		}
 		model.addAttribute("invoice", invoice);
-		model.addAttribute("title", "Factura: ".concat(invoice.getDescription()));
+		model.addAttribute("title", "Factura: ".concat(invoice.getNamemployee()));
 		return "/invoices/view";
 	}
 

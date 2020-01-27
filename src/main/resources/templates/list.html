@@ -6,16 +6,23 @@
 <body>
 	<header th:replace="/layout/layout :: header"></header>
 
-	<div class="container py-4">
+	 <div style="background-image: url(https://http2.mlstatic.com/kit-set-juego-herramientas-electricista-electricidad-pro-D_NQ_NP_710611-MLA31352758986_072019-F.jpg); height: 520px; width: 1200px; "><a th:href="@{/producto/create}">.</a></div>
+	 	 
+				 
+				
+	<div>
 		<div class="card bg-light">
 			<div class="card-header" th:text="${title}"></div>
 			<div class="card-body">
 				<div class="card-title">
+				
 					<a th:href="@{/form}"
 					
 						sec:authorize="hasRole('ROLE_ADMIN')" 
 						class="btn btn-primary btn-xs"><i class="material-icons">group_add</i>Nuevo cliente </a> 
 				</div>
+				
+
 				<table class="table table-striped table-bordered">
 					<thead class="thead-inverse">
 						<tr>

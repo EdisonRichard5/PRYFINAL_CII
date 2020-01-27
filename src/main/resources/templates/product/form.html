@@ -2,14 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout/layout :: head">
 <body> 
-				  
+				  <header th:replace="/layout/layout :: header"></header>
 
 				<form th:action="@{/producto/save}" th:object="${product}" method="post">
 
-					 
- 
-
-
+	
 					<div class="form-group row">
 						<div class="content col-sm-3">
 							<i class="fas fa-info-circle"></i>

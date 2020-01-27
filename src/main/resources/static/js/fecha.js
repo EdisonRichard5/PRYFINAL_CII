@@ -1,6 +1,12 @@
 var toData1=[0,0,0,0,0,0,0,0,0,0,0,0]
 var toData2=[0,0,0,0,0,0,0,0,0,0,0,0]
 var toData3=[0,0,0,0,0,0,0,0,0,0,0,0]
+function cero(va){
+	for (var i=0; i<12; i++) {
+		va[i]=0
+	}
+	return va;
+};
 function ordenar(va){
 	switch (va) {
 	  case 'January':
@@ -46,12 +52,18 @@ function ordenar(va){
 };
 	
 function load() {
+	var ingreso1 = $('#id1').val();
+	var ingreso2 = $('#id2').val();
+	var ingreso3 = $('#id3').val();
+	
+
 	$.ajax({
-		url: "/factura/loadData/6",
+		url: "/factura/loadData/"+ ingreso1,
 		method : 'GET',
 		dataType : 'json',
 		contentType : 'application/json',
 		success : function(response){
+			toData1=cero(toData1);
 			var toLabels = [];
 			var num=0;
 			$.each(response, function(i, item){
@@ -60,11 +72,12 @@ function load() {
 				toData1[num]=item.valor;
 			});
 			$.ajax({
-				url: "/factura/loadData/12",
+				url: "/factura/loadData/"+ ingreso2,
 				method : 'GET',
 				dataType : 'json',
 				contentType : 'application/json',
 				success : function(response){
+					toData2=cero(toData2);
 					var toLabels2 = [];
 					var num2=0;
 					$.each(response, function(i, item){
@@ -73,12 +86,12 @@ function load() {
 						toData2[num2]=item.valor;
 					});
 					$.ajax({
-						url: "/factura/loadData/38",
+						url: "/factura/loadData/"+ ingreso3,
 						method : 'GET',
 						dataType : 'json',
 						contentType : 'application/json',
 						success : function(response){
-							
+							toData3=cero(toData3);
 							var toLabels3 = [];
 							var num3=0;
 							$.each(response, function(i, item){
@@ -86,9 +99,6 @@ function load() {
 								num3=ordenar(item.mes);
 								toData3[num3]=item.valor;
 							});
-							console.log(toData1);
-							console.log(toData2);
-							console.log(toData3);
 							var barChartData = {
 									labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October','November','December'],
 									datasets: [{
@@ -109,46 +119,48 @@ function load() {
 										}]
 
 									};
-									var ctx = document.getElementById('chart-area').getContext('2d');
-									window.myBar = new Chart(ctx, {
-										type: 'bar',
-									data: barChartData,
-									options: {
-									responsive: true,
-									title: {
-										display: true,
-										text: 'Reporte por Mes'
-									},
-									tooltips: {
-										mode: 'index',
-										intersect: true
-									},
-									scales: {
-										yAxes: [{
-											type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-											display: true,
-											position: 'left',
-											id: 'y-axis-1',
-										}, {
-											type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-											display: true,
-											position: 'right',
-											id: 'y-axis-2',
+							$('#chart-area').replaceWith('<canvas id="chart-area"></canvas>');
+							var ctx = document.getElementById('chart-area').getContext('2d');
+							window.myBar = new Chart(ctx, {
+								type: 'bar',
+							data: barChartData,
+							options: {
+							responsive: true,
+							title: {
+								display: true,
+								text: 'Reporte por Mes'
+							},
+							tooltips: {
+								mode: 'index',
+								intersect: true
+							},
+							scales: {
+								yAxes: [{
+									type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+									display: true,
+									position: 'left',
+									id: 'y-axis-1',
+								}, {
+									type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+									display: true,
+									position: 'right',
+									id: 'y-axis-2',
+									gridLines: {
+										drawOnChartArea: false
+									}
+								}, {
+									type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+									display:false,
+									position: 'right',
+									id: 'y-axis-3',
 											gridLines: {
 												drawOnChartArea: false
 											}
-										}, {
-											type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-											display:false,
-											position: 'right',
-											id: 'y-axis-3',
-													gridLines: {
-														drawOnChartArea: false
-													}
-												}],
-											}
-										}
-									});
+										}],
+									}
+								}
+							});
+							
 							
 						},
 						error : function(err){

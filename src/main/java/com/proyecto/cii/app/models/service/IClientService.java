@@ -13,6 +13,7 @@ import com.proyecto.cii.app.reporting.LlaveValor;
 import com.proyecto.cii.app.reporting.LlaveValor2;
 
 public interface IClientService {
+	
 	public List<Client> findAll();
 	
 	public Page<Client> findAll(Pageable page);
@@ -36,7 +37,10 @@ public interface IClientService {
 	public Invoice fetchByIdWithClientWithInvoiceLineWithProduct(Long id);
 
 	public Client fetchByIdWithInvoice(Long id);
+	
 	public List<LlaveValor> countproduct();
+	
 	public List<LlaveValor2> countdate(Integer id);
+	
 	
 }

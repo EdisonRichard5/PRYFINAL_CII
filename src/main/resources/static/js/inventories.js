@@ -6,14 +6,14 @@ function load(){
 		contentType : 'application/json',
 		success : function(response){
 			
-			console.log(response);	
+				
 			
 			var toData = [];
 			var toLabels = [];
 			var toColors = [];
 			
 			$.each(response, function(i, item){
-				console.log(item);
+				
 				toData.push(item.valor);
 				toLabels.push(item.llave);
 				var color  = getRandomColor();							

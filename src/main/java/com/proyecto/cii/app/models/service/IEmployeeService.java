@@ -35,6 +35,8 @@ public interface IEmployeeService {
 	public Inventory fetchByIdWithClientWithInvoiceLineWithProduct(Long id);
 
 	public Employee fetchByIdWithInvoice(Long id);
+	
 	public List<LlaveValor> countproduct();
+	
 	public List<LlaveValor2> countdate(Integer id);
 }

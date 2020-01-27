@@ -50,7 +50,9 @@ import com.proyecto.cii.app.models.service.IUploadFileService;
 import com.proyecto.cii.app.util.paginator.PageRender;
 
 @Controller
-@RequestMapping(value="/product")
+@Secured("ROLE_ADMIN")
+@RequestMapping(value="/producto")
+@SessionAttributes("product")
 public class ProductController {
 
 	@Autowired
@@ -61,14 +63,14 @@ public class ProductController {
 		Product product = new Product();
 		model.addAttribute("title", "Registro de Producto");
 		model.addAttribute("product", product);
-		return "product/form";		
+		return "/product/form";		
 	}
 	
 	@GetMapping(value="/retrieve/{id}")
 	public String retrieve(@PathVariable(value="id") Long id, Model model) {
 		Product product = service.findById(id);
 		model.addAttribute("product", product);
-		return "product/card";		
+		return "/product/card";		
 	} 
 	
 	@GetMapping(value="/update/{id}")
@@ -77,7 +79,7 @@ public class ProductController {
 		model.addAttribute("title", "Actualizando el registro de " 
 		+ product.getName());
 		model.addAttribute("product", product);
-		return "product/form";		
+		return "/product/form";		
 	} 
 	
 	@GetMapping(value="/delete/{id}")
@@ -90,7 +92,7 @@ public class ProductController {
 		catch(Exception ex) {
 			flash.addFlashAttribute("error", "El registro no pudo ser eliminado.");
 		}
-		return "redirect:/product/list";		
+		return "redirect:/producto/list";		
 	} 
 	
 	@PostMapping(value="/save")
@@ -100,7 +102,7 @@ public class ProductController {
 			if(result.hasErrors())
 			{
 				model.addAttribute("tittle","Error al Guardar");
-				return"product/form";
+				return"/product/form";
 			}
 			service.save(product);
 			flash.addFlashAttribute("success", "El registro fue guardado con éxito.");
@@ -108,7 +110,7 @@ public class ProductController {
 		catch(Exception ex) {
 			flash.addFlashAttribute("error", "El registro no pudo ser guardado.");
 		}
-		return "redirect:/product/list";		
+		return "redirect:/producto/list";		
 	} 
 	
 	@GetMapping(value="/list")
@@ -116,7 +118,7 @@ public class ProductController {
 		List<Product> lista = service.findAll();
 		model.addAttribute("title", "Listado de Productos");
 		model.addAttribute("lista", lista);
-		return "product/list";		
+		return "/product/list";		
 	} 
 	
 }

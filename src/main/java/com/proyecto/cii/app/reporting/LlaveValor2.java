@@ -13,13 +13,7 @@ public class LlaveValor2 implements Serializable{
 
 	private String mes;
 	
-	public LlaveValor2(String mes, String llave, BigDecimal valor, Date fecha) {
-		super();
-		this.mes = mes;
-		this.llave = llave;
-		this.valor = valor;
-		Fecha = fecha;
-	}
+	
 
 	private String llave;
 
@@ -27,6 +21,14 @@ public class LlaveValor2 implements Serializable{
 	
 	private Date Fecha;
 
+	public LlaveValor2(String mes, String llave, BigDecimal valor, Date fecha) {
+		super();
+		this.mes = mes;
+		this.llave = llave;
+		this.valor = valor;
+		Fecha = fecha;
+	}
+	
 	public String getMes() {
 		return mes;
 	}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+<div id="wrapper"> 
+	<div id="content-wrapper" class="d-flex flex-column">
+		<!-- Begin Page Content -->
+		<div class="container">
+			<div class="container-fluid">				
+				<br />
+		<div class="card col-md-12">
+			<div class="card-body">
+				<div class="form-group row">
+					<div class="content col-sm-1">
+						<i class="far fa-plus-square fa-2x"></i>
+					</div>
+					<h3 class="card-title col-sm-10" th:text="${title}"></h3>
+				</div>
+				<hr />
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th><i class="fas fa-info-circle"></i>&nbsp;Nombre</th>
+							<th><a class="btn btn-sm btn-success" th:href="@{/product/create}" >
+								<i class="fas fa-plus"></i>&nbsp;Nuevo</a>
+							</th>
+						</tr>
+					</thead>
+					<tbody>						
+						<tr th:each="product : ${lista}" >
+							<td th:text="${product.name}"></td>
+							<td>
+								<div class="row">
+									<a class="btn btn-sm btn-warning" title="Editar"
+									   th:href="@{/product/update/} + ${product.idp}">
+										<i class="fas fa-edit"></i>
+									</a>
+									<a class="btn btn-sm btn-primary" title="Ver"
+									   th:href="@{/product/retrieve/} + ${product.id}">
+										<i class="fas fa-eye"></i>
+									</a>									
+								</div>
+
+							</td>							
+						</tr>				
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+			</div>
+	
+	<footer th:replace="/layout/layout :: footer"></footer>
+		</div>
+	</div>
+</div>
+</body>

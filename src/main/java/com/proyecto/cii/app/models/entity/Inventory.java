@@ -35,7 +35,7 @@ public class Inventory implements Serializable {
 	@NotEmpty
 	private String description;
 
-	private String information; 
+	private String category; 
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="created_at")
@@ -70,12 +70,7 @@ public class Inventory implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getInformation() {
-		return information;
-	}
-	public void setInformation(String information) {
-		this.information = information;
-	}
+ 
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -83,6 +78,14 @@ public class Inventory implements Serializable {
 		this.createdAt = createdAt;
 	}
  
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	public List<InventoryLine> getLines() {
 		return lines;
 	}

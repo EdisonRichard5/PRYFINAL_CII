@@ -19,7 +19,7 @@
 						<label class="col-sm-3 col-form-label" th:text="'Empleado'"></label>
 						<div class="col-sm-6">
 							<input type="text"
-								th:value="${inventory.employee.name + ' ' + inventory.employee.phone}"
+								th:value="${inventory.employee.name + ' ' + inventory.employee.email}"
 								class="form-control" disabled='disabled'></input>
 						</div>
 					</div>
@@ -33,10 +33,44 @@
 								th:errors="*{description}"></div>
 						</div>
 					</div>
-					<div class="form-group row">
-						<label class="col-sm-3 col-form-label" th:text="'Observaciones'"></label>
+					
+						<div class="form-group row">
+						<label class="col-sm-3 col-form-label" th:text="'Categoria'"></label>
 						<div class="col-sm-6">
-							<textarea th:field="*{information}" class="form-control"></textarea>
+							<select th:field="*{category}"  required>
+							<option value=0>--Seleccione--</option> 
+							  <option value="Abrasivo">Abrasivo</option>
+							  <option value="Abrazadera metálica">Abrazadera metálica</option>
+							  <option value="Abrazadera plastificada">Abrazadera plastificada</option>
+							    <option value="Accesorio para cerradura eléctrica">Accesorio para cerradura eléctrica</option>
+							    <option value="Aceite multiuso en spray">Aceite multiuso en spray</option>
+							    <option value="Base de enchufe aérea con toma de tierra">Base de enchufe aérea con toma de tierra</option>
+							    <option value="Bomba hidráulica">Bomba hidráulica</option>
+							    <option value="Breaker">Breaker</option>
+							    <option value="Broca">Broca</option>
+							    <option value="Cable">Cable</option>
+							    <option value="Candado">Candado</option>
+							    <option value="Cerraduras">Cerraduras</option>
+							    <option value="Cintas adhesivas">Cintas adhesivas</option>
+							    <option value="Cintas métricas">Cintas métricas</option>
+							    <option value="Cinturones de seguridad y protección">Cinturones de seguridad y protección</option>
+							    <option value="Clavos">Clavos</option> 
+							    <option value="Conectores coaxiales para TV">Conectores coaxiales para TV</option>
+							    <option value="Conmutadores de empotrar domésticos">Conmutadores de empotrar domésticos</option>
+							    <option value="Discos de corte">Discos de corte</option>
+							    <option value="Extensiones">Extensiones</option>
+							    <option value="Grapas">Grapas</option>
+							    <option value="Herramientas de corte">Herramientas de corte</option>
+							    <option value="Herramientas eléctricas">Herramientas eléctricas</option>
+							    <option value="Herramientas kits">Herramientas kits</option>
+							    <option value="Herramientas para soldadura">Herramientas para soldadura</option>
+							    <option value="Herramientas para tubos">Herramientas para tubos</option>
+							    <option value="Hojas de sierra">Hojas de sierra</option>
+							    <option value="Iluminación exterior">Iluminación exterior</option>
+							    <option value="Iluminación interior">Iluminación interior</option>
+							    <option value="Industrial">Industrial</option>
+							
+						</select>
 						</div>
 					</div>
 					<div class="form-group row">

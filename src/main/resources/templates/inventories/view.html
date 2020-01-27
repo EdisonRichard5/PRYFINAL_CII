@@ -21,13 +21,15 @@
 					<li class="list-group-item" th:text="${inventory.employee.email}"></li>
 				</ul>
 
-				<!-- DATOS FACTURA -->
+				<!-- DATOS INVENTARIO -->
 				<ul class="list-group my-4">
 					<li class="list-group-item list-group-item-success"
 						th:text="'Datos del inventario'"></li>
 					<li class="list-group-item" th:text="'Folio: ' + ${inventory.id}"></li>
 					<li class="list-group-item"
-						th:text="'Descripción: ' + ${inventory.description}"></li>
+						th:text="'Descripción ' + ${inventory.description}"></li>
+						<li class="list-group-item"
+						th:text="'Categoria: ' + ${inventory.category}"></li>
 					<li class="list-group-item"
 						th:text="'Fecha: ' + ${inventory.createdAt}"></li>
 				</ul>
@@ -57,16 +59,15 @@
 				</table>
 
 				<h5 class="float-right">
-					Total: <span th:text="${inventory.total} + ' €'"></span>
+					Total: $ <span th:text="${inventory.total}"></span>
 				</h5>
 
 				<div class="card border-info mb-4" style="max-width: 20rem;">
 					<div class="card-header">Observaciones</div>
 					<div class="card-body">
-						<p th:if="${not #strings.isEmpty(inventory.information)}"
-							th:text="${inventory.information}" class="card-text"></p>
-						<p th:if="${#strings.isEmpty(inventory.information)}"
-							th:text="'Sin observaciones'" class="card-text"></p>
+						<p th:if="${not #strings.isEmpty(inventory.category)}"
+							th:text="${inventory.category}" class="card-text"></p>
+						 
 					</div>
 				</div>
 

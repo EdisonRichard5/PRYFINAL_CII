@@ -33,12 +33,18 @@
 								th:errors="*{description}"></div>
 						</div>
 					</div>
+					
 					<div class="form-group row">
-						<label class="col-sm-3 col-form-label" th:text="'Observaciones'"></label>
+						<label class="col-sm-3 col-form-label" th:text="'Estado'"></label>
 						<div class="col-sm-6">
-							<textarea th:field="*{information}" class="form-control"></textarea>
+							<select th:field="*{Status}"  required>
+							<option value=0>--Seleccione--</option> 
+							  <option value="Proforma">Proforma</option>
+							  <option value="Factura">Factura</option>
+						</select>
 						</div>
 					</div>
+					
 					<div class="form-group row">
 						<label class="col-sm-3 col-form-label" th:text="'Buscar producto'"></label>
 						<div class="col-sm-6">

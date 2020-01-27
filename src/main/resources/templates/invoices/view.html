@@ -28,6 +28,8 @@
 					<li class="list-group-item" th:text="'Folio: ' + ${invoice.id}"></li>
 					<li class="list-group-item"
 						th:text="'Descripción: ' + ${invoice.description}"></li>
+						<li class="list-group-item"
+						th:text="'Estado: ' + ${invoice.status}"></li>
 					<li class="list-group-item"
 						th:text="'Fecha: ' + ${invoice.createdAt}"></li>
 				</ul>
@@ -57,16 +59,16 @@
 				</table>
 
 				<h5 class="float-right">
-					Total: <span th:text="${invoice.total} + ' €'"></span>
+					Total: $ <span th:text="${invoice.total}"></span>
 				</h5>
 
 				<div class="card border-info mb-4" style="max-width: 20rem;">
-					<div class="card-header">Observaciones</div>
+					<div class="card-header">Estado</div>
 					<div class="card-body">
-						<p th:if="${not #strings.isEmpty(invoice.information)}"
-							th:text="${invoice.information}" class="card-text"></p>
-						<p th:if="${#strings.isEmpty(invoice.information)}"
-							th:text="'Sin observaciones'" class="card-text"></p>
+						<p th:if="${not #strings.isEmpty(invoice.status)}"
+							th:text="${invoice.status}" class="card-text"></p>
+						<p th:if="${#strings.isEmpty(invoice.status)}"
+							th:text="'Sin Estado'" class="card-text"></p>
 					</div>
 				</div>
 

@@ -35,7 +35,7 @@ public class Invoice implements Serializable {
 	@NotEmpty
 	private String description;
 	
-	private String information;
+	private String status;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="created_at")
@@ -69,12 +69,15 @@ public class Invoice implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getInformation() {
-		return information;
+  
+	public String getStatus() {
+		return status;
 	}
-	public void setInformation(String information) {
-		this.information = information;
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}

@@ -40,7 +40,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		//pero tambien se puede hacer directamente en el controlador, utilizando
 		//la anotación @Secured(role) en cada método
 		http.authorizeRequests()
-		.antMatchers("/", "/css/**", "/js/**", "/img/**", "/", "/locale").permitAll()
+		.antMatchers("/","/home","/index", "/css/**", "/js/**", "/img/**", "/locale").permitAll()
 		//.antMatchers("/ver/**").hasAnyRole("USER")
 		//.antMatchers("/uploads/**").hasAnyRole("USER")
 		//.antMatchers("/form/**").hasAnyRole("ADMIN")

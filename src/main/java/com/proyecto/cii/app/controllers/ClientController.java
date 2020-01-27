@@ -101,7 +101,7 @@ public class ClientController {
 		}
 		return "/ver";
 	}
-
+	@Secured("ROLE_ADMIN")
 	@RequestMapping(value= {"/clientes"}, method=RequestMethod.GET)
 	public String listar(@RequestParam(name="page", defaultValue="0") int page, 
 			Model model, 

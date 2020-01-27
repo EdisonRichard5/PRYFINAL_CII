@@ -47,7 +47,6 @@ public class InvoiceController {
 			flash.addFlashAttribute("error", "No existe ese cliente");
 			return "redirect:/clients";
 		}
-		
 	//	List<Employee> employee = srvProveedor.findAll();
 		//model.put("employee", employee );  
         

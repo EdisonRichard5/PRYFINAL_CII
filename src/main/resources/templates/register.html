@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"></meta>
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body background="http://k33.kn3.net/taringa/D/B/F/C/8/2/luismi222222/C92.jpg" 
+  >
+
+<form th:action="@{/user/save}" th:object="${user}"	method="post" style="max-width:500px;margin:auto">
+ 
+	<center> 
+	 
+	  <h1>BIENVENIDO A ELECTRO  PÉREZ</h1>
+	 
+	 <img src="https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1426089174/se3kybrisls2hwrfmnmb.png"
+				 width="300" height="300"> 
+	</center>
+	 
+	<h2>Registro de Usuario</h2>
+	<div class="input-container">
+	<i class="fa fa-user icon"></i>
+	    
+	    
+	<input class="input-field" type="text" th:field="*{username}" placeholder="Usuario"
+												class="single-input"
+												th:errorclass="'form-control is-invalid'" /> <small
+												class="invalid-feedback"
+												th:if="${#fields.hasErrors('username')}"
+												th:errors="*{username}"></small>
+	    
+	</div>
+	
+	<div class="input-container">
+	<i class="fa fa-key icon"></i>
+	<input class="input-field" type="password" th:field="*{password}"
+												placeholder="Contraseña" class="single-input"
+												th:errorclass="'form-control is-invalid'" /> <small
+												class="invalid-feedback"
+												th:if="${#fields.hasErrors('password')}"
+												th:errors="*{password}"></small>
+	
+	  </div>
+	
+	  
+	  <div class="input-container">
+	    <i class="fa fa-key icon"></i>
+	    <input class="input-field" type="password" placeholder="Repetir Contraseña" name="psw">
+	  </div>
+	 
+	<div class="input-group-icon mt-10">
+	
+	  										<button type="submit" class="btn">Registrarse</button>
+										</div>
+	
+										<input type="hidden" th:field="*{id}" />
+	
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: frgHead"></head>
+<body>
+	<header th:replace="layout :: frgHeader"></header>
+
+	<div class="whole-wrap">
+		<div class="container box_1170">
+			<div class="section-top-border">
+				<div class="welcome_docmed_area">
+					<div class="row">
+						<div class="col-xl-5 col-lg-5">
+							<div class="welcome_thumb">
+								<div class="thumb_1">
+									<img th:src="@{/img/about/1.png}" alt="">
+								</div>
+								<div class="thumb_2">
+									<img th:src="@{/img/about/2.png}" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-7 col-lg-7">
+							<div class="welcome_docmed_info">
+								<h2 th:text="${title}"></h2>
+								<h3>Usuario</h3>
+								<form th:action="@{/usuario/save}" th:object="${usuario}"
+									method="post">
+
+									<div class="input-group-icon mt-10">
+										<div class="icon">
+											<i class="fas fa-info-circle" aria-hidden="true"></i>
+										</div>
+										<input type="text" th:field="*{cedula}"
+											placeholder="C&eacute;dula" class="single-input"
+											th:errorclass="'form-control is-invalid'" /> <small
+											class="invalid-feedback"
+											th:if="${#fields.hasErrors('cedula')}" th:errors="*{cedula}"></small>
+									</div>
+
+									<div class="input-group-icon mt-10">
+										<div class="icon">
+											<i class="fas fa-info-circle" aria-hidden="true"></i>
+										</div>
+										<input type="text" th:field="*{nombres}" placeholder="Nombres"
+											class="single-input"
+											th:errorclass="'form-control is-invalid'" /> <small
+											class="invalid-feedback"
+											th:if="${#fields.hasErrors('nombres')}"
+											th:errors="*{nombres}"></small>
+									</div>
+
+									<div class="input-group-icon mt-10">
+										<div class="icon">
+											<i class="fas fa-info-circle" aria-hidden="true"></i>
+										</div>
+										<input type="text" th:field="*{apellidos}"
+											placeholder="Apellidos" class="single-input"
+											th:errorclass="'form-control is-invalid'" /> <small
+											class="invalid-feedback"
+											th:if="${#fields.hasErrors('apellidos')}"
+											th:errors="*{apellidos}"></small>
+									</div>
+
+
+									<div class="input-group-icon mt-10">
+										<div class="icon">
+											<i class="fas fa-info-circle" aria-hidden="true"></i>
+										</div>
+										<input type="text" th:field="*{nombre}"
+											placeholder="Nombre de usuario" class="single-input"
+											th:errorclass="'form-control is-invalid'" /> <small
+											class="invalid-feedback"
+											th:if="${#fields.hasErrors('nombre')}"
+											th:errors="*{nombre}"></small>
+									</div>
+
+									<div class="input-group-icon mt-10">
+										<div class="icon">
+											<i class="fas fa-info-circle" aria-hidden="true"></i>
+										</div>
+										<input type="password" th:field="*{contrasenia}"
+											placeholder="Contrase&ntilde;a" class="single-input"
+											th:errorclass="'form-control is-invalid'" /> <small
+											class="invalid-feedback"
+											th:if="${#fields.hasErrors('contrasenia')}"
+											th:errors="*{contrasenia}"></small>
+									</div>
+
+
+									<div class="input-group-icon mt-10">
+										<a class="genric-btn danger radius" th:href="@{/}">
+											Cancelar </a> <input type="submit"
+											class="genric-btn success radius" value="Guardar" />
+
+									</div>
+
+									<input type="hidden" th:field="*{idpersona}" />
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="layout :: frgFooter"></footer>
+</body>
+</html>

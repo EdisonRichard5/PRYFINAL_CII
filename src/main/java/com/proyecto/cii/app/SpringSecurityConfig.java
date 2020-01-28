@@ -40,7 +40,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		//pero tambien se puede hacer directamente en el controlador, utilizando
 		//la anotación @Secured(role) en cada método
 		http.authorizeRequests()
-		.antMatchers("/","/home","/index", "/css/**", "/js/**", "/img/**", "/locale").permitAll()
+		.antMatchers("/","/home","/index","/usuario/create", "/css/**", "/js/**", "/img/**").permitAll()
 		//.antMatchers("/ver/**").hasAnyRole("USER")
 		//.antMatchers("/uploads/**").hasAnyRole("USER")
 		//.antMatchers("/form/**").hasAnyRole("ADMIN")
@@ -68,8 +68,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 				.password("admin")
 				.roles("ADMIN", "USER"))
 		.withUser(
-				users.username("cristian")
-				.password("cristian")
+				users.username("shirley")
+				.password("shirley")
 				.roles("USER"));*/
 
 		//Este código permite implementar usuarios con base de datos a través de JDBC

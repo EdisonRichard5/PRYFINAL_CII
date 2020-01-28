@@ -3,50 +3,8 @@
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <meta charset="UTF-8"></meta>
 <head th:replace="/layout/layout :: head">
-</head> <style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-  border-right:1px solid #bbb;
-}
-
-li:last-child {
-  border-right: none;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #111;
-}
-
-.active {
-  background-color: #3346FF;
-}
-</style>
-</head>
-<body>
-
-<ul>
-  <li><a class="active" th:href="@{'/'}"><i class="material-icons">emoji_objects</i> ElectroPérez </a> </li>
-  <li><a href="#" th:href="@{/clientes/}">Clientes</a></li>
-  <li><a href="#" th:href="@{/empleados/}">Empleados</a></li>
-  <li><a href="#" th:href="@{/producto/create}">Productos</a></li>
-   </ul> 
-	 
+<body> 
+	 <header th:replace="/layout/layout :: header"></header>
  
 	 <div style="background-image: url(https://http2.mlstatic.com/kit-set-juego-herramientas-electricista-electricidad-pro-D_NQ_NP_710611-MLA31352758986_072019-F.jpg); height: 520px; width: 1200px; "><a th:href="@{/producto/create}">.</a></div>
 	 	 

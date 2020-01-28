@@ -47,8 +47,7 @@ public class InvoiceController {
 			flash.addFlashAttribute("error", "No existe ese cliente");
 			return "redirect:/clients";
 		}
-	//	List<Employee> employee = srvProveedor.findAll();
-		//model.put("employee", employee );  
+	  
         
 		Invoice invoice = new Invoice();
 		invoice.setClient(client);
@@ -106,7 +105,7 @@ public class InvoiceController {
 			return "redirect:/clientes";
 		}
 		model.addAttribute("invoice", invoice);
-		model.addAttribute("title", "Factura: ".concat(invoice.getNamemployee()));
+		model.addAttribute("title", "Factura: ".concat(invoice.getDescription()));
 		return "/invoices/view";
 	}
 

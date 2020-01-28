@@ -84,7 +84,7 @@ li a:hover:not(.active) {
 			</button>
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href="#"
+					<li sec:authorize="hasRole('ROLE_ADMIN')"class="nav-item active"><a class="nav-link" href="#"
 						th:href="@{/clientes/}" th:text="#{text.layout.clients}"></a></li>
 				
 					<li class="nav-item active"><a class="nav-link" href="#"

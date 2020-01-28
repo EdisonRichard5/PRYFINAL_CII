@@ -52,9 +52,7 @@ public class UserController {
 				return "/usuario/form";
 			}
 			
-			String pass = usuario.getPassword();
-			usuario.setPassword(passwordEncoder.encode(pass));			
-			usuario.getRoles().add(new Role("ROLE_USER"));
+			
 			
 			service.save(usuario);
 			flash.addFlashAttribute("success", "El registro fue guardado con éxito.");

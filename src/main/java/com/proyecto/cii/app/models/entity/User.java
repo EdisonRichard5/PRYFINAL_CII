@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
 @Table(name="users")
 public class User implements Serializable{
@@ -35,6 +37,13 @@ public class User implements Serializable{
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id")
 	private List<Role> roles;
+
+	public User() {
+	}
+	public User(String username2, String password2, Boolean enabled2, boolean b, boolean c, boolean d,
+			List<GrantedAuthority> roles2) {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Long getId() {
 		return id;

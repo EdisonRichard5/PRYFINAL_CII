@@ -29,8 +29,7 @@ import com.proyecto.cii.app.reporting.LlaveValor;
 import com.proyecto.cii.app.reporting.LlaveValor2;
 
 @Controller
-@RequestMapping("/inventario")
-@Secured("ROLE_ADMIN")
+@RequestMapping("/inventario") 
 @SessionAttributes("inventory")
 public class InventoryController {
 
@@ -52,6 +51,23 @@ public class InventoryController {
 	return "/inventories/form2";
 	}
 
+	
+	@GetMapping("/form3/{clientId}")
+	public String crear2(@PathVariable(value="clientId") Long clientId, Map<String, Object> model, RedirectAttributes flash) {
+	Employee employee = clientService.findOne(clientId);
+	if(employee == null) {
+		flash.addFlashAttribute("error", "No existe ese cliente");
+		return "redirect:/employees";
+	}
+	Inventory inventory = new Inventory();
+	inventory.setEmployee(employee);
+	model.put("inventory", inventory);
+	model.put("title2", "Crear inventario");
+
+	return "/inventories/form2";
+	}
+
+	
 	@GetMapping(value="/cargar-producto2/{search}", produces={"application/json"})
 	public @ResponseBody List<Product> loadProducts(@PathVariable String search){
 		return clientService.findByName(search);

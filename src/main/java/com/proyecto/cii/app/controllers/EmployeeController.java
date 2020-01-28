@@ -47,8 +47,8 @@ import com.proyecto.cii.app.models.service.IUploadFileService;
 import com.proyecto.cii.app.util.paginator.PageRender;
 
 
-@Controller
-@SessionAttributes("employee")
+@Controller 
+@SessionAttributes("employee") 
 public class EmployeeController {
 
 	protected final Logger log = LoggerFactory.getLogger(getClass());
@@ -76,9 +76,8 @@ public class EmployeeController {
 				.body(resource);
 	}
 
-
-	@Secured("ROLE_USER")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	//@Secured("ROLE_USER")
+		@PreAuthorize("hasRole('ROLE_USER')")
 	@GetMapping(value="/ver2/{id}")
 	public String ver(@PathVariable(value="id") Long id, Map<String, Object> model, RedirectAttributes flash) {
 		 
@@ -95,7 +94,10 @@ public class EmployeeController {
 	}
 	
 	
+	
 
+
+	@Secured("ROLE_ADMIN")
 	@RequestMapping(value= {"/empleados", "/list2"}, method=RequestMethod.GET)
 	public String listar(@RequestParam(name="page", defaultValue="0") int page, 
 			Model model, 

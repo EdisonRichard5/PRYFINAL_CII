@@ -32,7 +32,6 @@ import com.proyecto.cii.app.reporting.LlaveValor2;
 
 @Controller
 @RequestMapping("/factura")
-@Secured("ROLE_ADMIN")
 @SessionAttributes("invoice")
 public class InvoiceController {
 

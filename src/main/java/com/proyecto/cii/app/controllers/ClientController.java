@@ -70,8 +70,8 @@ public class ClientController {
 	//ya que si no Spring eliminaría la extensión del mismo (del archivo)
 	//y la necesitamos para buscar el fichero en el equipo.
 	//Cuando la vista intenta cargar la imagen desde la carpeta uploads
-	//este método es llamado
-	@Secured("ROLE_USER")
+	//este método es llamado 
+	
 	@GetMapping(value="/uploads/{filename:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable String filename){
 		Resource resource = null;
@@ -85,9 +85,7 @@ public class ClientController {
 				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment: filename=\"" + resource.getFilename() + "\"")
 				.body(resource);
 	}
-
-	//@Secured("ROLE_USER")
-	@PreAuthorize("hasRole('ROLE_USER')")
+ 
 	@GetMapping(value="/ver/{id}")
 	public String ver(@PathVariable(value="id") Long id, Map<String, Object> model, RedirectAttributes flash) {
 		//Client client = clientService.findOne(id);
@@ -100,8 +98,11 @@ public class ClientController {
 			model.put("title", "Detalles cliente - " + client.getName());
 		}
 		return "/ver";
-	}
-	@Secured("ROLE_ADMIN")
+	} 
+	
+	
+	
+	
 	@RequestMapping(value= {"/clientes"}, method=RequestMethod.GET)
 	public String listar(@RequestParam(name="page", defaultValue="0") int page, 
 			Model model, 
@@ -118,24 +119,7 @@ public class ClientController {
 		 */
 		
 		//Comprobamos si el usuario tiene el rol necesario para este recurso
-		if(hasRole("ROLE_ADMIN")) {
-			log.info("El usuario tiene el role necesario para acceder a éste recurso");
-		}else {
-			log.error("El usuario NO tiene el role necesario para acceder a éste recurso");
-		}
-		//De esta manera podemos hacer lo mismo, sin tener que implementar el método hasRole()
-		/*SecurityContextHolderAwareRequestWrapper securityContext = new SecurityContextHolderAwareRequestWrapper(request, "ROLE_");
-		if(securityContext.isUserInRole("ADMIN")) {
-			log.info("Usando SecurityContextHolderAwareRequestWrapper: El usuario tiene el role necesario para acceder a éste recurso");
-		}else {
-			log.info("Usando SecurityContextHolderAwareRequestWrapper: El usuario NO tiene el role necesario para acceder a éste recurso");
-		}*/
-		//Esta es otra manera más de hacer lo mismo, pero utilizando el objeto request inyectado al método
-		if(request.isUserInRole("ROLE_ADMIN")) {
-			log.info("Usando HttpServletRequest: El usuario tiene el role necesario para acceder a éste recurso");
-		}else {
-			log.info("Usando HttpServletRequest: El usuario NO tiene el role necesario para acceder a éste recurso");
-		}
+	 
 		
 		//Pageable pageRequest = new PageRequest(page, 5);
 		Pageable pageRequest = PageRequest.of(page, 3);	//Spring Boot 2
@@ -146,8 +130,7 @@ public class ClientController {
 		model.addAttribute("page", render);
 		return "/list";
 	}
-
-	@Secured("ROLE_ADMIN")
+ 
 	@RequestMapping(value="/form")
 	public String crear(Map<String, Object> model) {
 		Client client = new Client();
@@ -156,8 +139,7 @@ public class ClientController {
 		return "/form";
 	}
 
-	//@Secured("ROLE_ADMIN")
-	@PreAuthorize("hasRole('ROLE_ADMIN')")	//La anotación @PreAuthorize es igual que @Secured, solo que permite más control
+	//@Secured("ROLE_ADMIN") 
 	@RequestMapping(value="/form/{id}")
 	public String editar(@PathVariable(value="id") Long id, Map<String, Object> model, RedirectAttributes flash) {
 		if(id > 0) {
@@ -175,8 +157,7 @@ public class ClientController {
 			return "redirect:/clientes";
 		}
 	}
-
-	@Secured("ROLE_ADMIN")
+ 
 	@RequestMapping(value="/form", method=RequestMethod.POST)
 	public String guardar(@Valid Client client, BindingResult result, Model model, @RequestParam("file") MultipartFile photo, RedirectAttributes flash, SessionStatus sessionStatus) {
 		if(result.hasErrors()) {
@@ -221,8 +202,7 @@ public class ClientController {
 		flash.addFlashAttribute("success", message);
 		return "redirect:clientes";
 	}
-
-	@Secured("ROLE_ADMIN")
+ 
 	@RequestMapping(value="/eliminar/{id}")
 	public String eliminar(@PathVariable(value="id") Long id, RedirectAttributes flash, Map<String, Object> model) {
 		if(id > 0) {

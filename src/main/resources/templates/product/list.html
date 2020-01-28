@@ -1,38 +1,54 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head th:replace="/layout/layout :: head">
-<body> 
-<header th:replace="/layout/layout :: header"></header>
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th><i class="fas fa-info-circle"></i>&nbsp;Nombre</th>
-							<th><a class="btn btn-sm btn-success" th:href="@{/producto/create}" >
-								<i class="fas fa-plus"></i>&nbsp;Nuevo</a>
+</head>
+<body>
+	<header th:replace="/layout/layout :: header"></header>
+			
+	 
+		<div class="card bg-light">
+			<div class="card-header" th:text="${title}"></div>
+			<div class="card-body">
+				<div class="card-title">
+	 	 
+				
+				<table class="table table-striped table-bordered">
+					<thead class="thead-inverse" align="center">
+						 
+						<tr> 
+							<th><i class="fas fa-info-circle"></i>&nbsp;Nombre Productos</th>
+							<th ><a class="btn btn-sm btn-success" th:href="@{/producto/create}" >
+								<i class="material-icons">add_box</i>&nbsp;Nuevo</a>
 							</th>
-						</tr>
+						</tr> 
 					</thead>
 					<tbody>						
 						<tr th:each="product : ${lista}" >
-							<td th:text="${product.name}"></td>
+							<td th:text="${product.name}"></td> 
 							<td>
-								<div class="row">
+							
+								<div class="d-flex justify-content-center">
+								
+								 
 									<a class="btn btn-sm btn-warning" title="Editar"
 									   th:href="@{/producto/update/} + ${product.id}">
-										<i class="fas fa-edit"></i>
+										<i class="material-icons">update</i>
 									</a>
 									<a class="btn btn-sm btn-primary" title="Ver"
 									   th:href="@{/producto/retrieve/} + ${product.id}">
-										<i class="fas fa-eye"></i>
-									</a>									
+										<i class="material-icons">find_in_page</i>
+									</a>	
+																
 								</div>
-
+	 
 							</td>							
 						</tr>				
 
 					</tbody>
 				</table>
-		 
+		 	</div>	</div>	</div>								
 	
 	<footer th:replace="/layout/layout :: footer"></footer>
 	 

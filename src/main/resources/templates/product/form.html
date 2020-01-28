@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head th:replace="/layout/layout :: head">
 <body> 
 				  <header th:replace="/layout/layout :: header"></header>
-
+<div class="card border-primary text-center">
+		<div class="card bg-white text-black">
+			<div class="card-header" th:text="${title2}"></div>
+			 
+			 
+			 			<div style="text-align:center">
+<img src="https://sites.google.com/site/globaltechtvsac/home/productos/15.jpg"
+			 width="300" height="250">
+			 </div> 
+			 
+			 
 				<form th:action="@{/producto/save}" th:object="${product}" method="post">
 
 	
@@ -14,7 +25,7 @@
 						</div>
 						<div class="content col-sm-6">							
 							<input class="form-control" type="text" 
-								th:field="*{name}"
+								th:field="*{name}"  placeholder="Nombre"
 								th:errorclass="'form-control is-invalid'" />
 							<small class="invalid-feedback"
 								th:if="${#fields.hasErrors('name')}"
@@ -33,7 +44,7 @@
 						</div>
 						<div class="content col-sm-6">							
 							<input class="form-control" step="any" type="number" 
-								th:field="*{price}"
+								th:field="*{price}" placeholder="Precio"
 								th:errorclass="'form-control is-invalid'" />
 							<small class="invalid-feedback"
 								th:if="${#fields.hasErrors('price')}"
@@ -50,7 +61,7 @@
 						</div>
 						<div class="content col-sm-6">							
 							<input class="form-control" type="text" 
-								th:field="*{createdAt}"
+								th:field="*{createdAt}" placeholder="formato: dd-mm-aa"
 								th:errorclass="'form-control is-invalid'" />
 							<small class="invalid-feedback"
 								th:if="${#fields.hasErrors('createdAt')}"
@@ -67,9 +78,9 @@
 						<div class="col-sm-4">
 							<a class="btn btn-danger" 
 								th:href="@{/producto/list}">
-							<i class="fas fa-minus-circle"></i>&nbsp;Cancelar</a>
+							<i class="material-icons">cancel</i>&nbsp;Cancelar</a>
 							<button class="btn btn-success" type="submit">
-								<i class="fas fa-plus-circle"></i>&nbsp;Guardar
+								<i class="material-icons">save</i>&nbsp;Guardar
 							</button>
 						</div>
 					</div>
@@ -77,7 +88,7 @@
 
 
 				</form>
- 
+ </div></div>
 			
 	<footer th:replace="/layout/layout :: footer"></footer>
  

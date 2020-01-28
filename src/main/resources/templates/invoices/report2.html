@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head th:replace="/layout/layout :: head">
 </head>
 <body>
 	<header th:replace="/layout/layout :: header"></header>
-	<h2 th:text="${title}"></h2>
+			
+	 
+		<div class="card bg-light">
+			<div class="card-header" th:text="${title}"></div>
+			<div class="card-body"  style="text-align:center">
+				<div class="card-title"  style="text-align:center">
+
 <div class="whole-wrap">
 		<div class="container box_1170">
 			<div class="section-top-border">
@@ -41,6 +49,9 @@
 
 				</div>
 			</div>
+		</div>
+	</div>	
+	</div>
 		</div>
 	</div>
 

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head th:replace="/layout/layout :: head">
 </head>
 <body>
 	<header th:replace="/layout/layout :: header"></header>
 
-	 <div style="background-image: url(https://http2.mlstatic.com/kit-set-juego-herramientas-electricista-electricidad-pro-D_NQ_NP_710611-MLA31352758986_072019-F.jpg); height: 520px; width: 1200px; "><a th:href="@{/producto/create}">.</a></div>
 	 	 
 				 
 				
@@ -28,8 +28,8 @@
     Reportes
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="/factura/report">Estadistica Productos m�s Vendidos</a>
-    <a class="dropdown-item" href="/factura/report2">Estadistica Productos Vendidos en el a�o</a>
+    <a class="dropdown-item" href="/factura/report">Estadistica Productos más Vendidos</a>
+    <a class="dropdown-item" href="/factura/report2">Estadistica Productos Vendidos en el año</a>
   
   </div>
 </div>
@@ -67,7 +67,7 @@
 							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
 								th:href="@{/eliminar/} + ${client.id}"
 								class="btn btn-danger btn-xs"
-								onclick="return confirm('¿Seguro?')"> <i
+								onclick="return confirm('Â¿Seguro?')"> <i
 									class="material-icons">delete_forever</i></a></td>
 						</tr>
 					</tbody>

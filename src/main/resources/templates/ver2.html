@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <head th:replace="/layout/layout :: head">
 </head>
 <body>
@@ -57,7 +59,7 @@
 							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
 								th:href="@{'/inventario/eliminar2/' + ${inventory.id}}"
 								class="btn btn-xs btn-danger"
-								onclick="return confirm('Â¿Seguro que quieres eliminar el inventario?')"><i
+								onclick="return confirm('Ã‚Â¿Seguro que quieres eliminar el inventario?')"><i
 									class="material-icons">delete</i></a></td>
 						</tr>
 					</tbody>

@@ -12,6 +12,9 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="products")
@@ -26,6 +29,8 @@ public class Product implements Serializable{
 	private Double price;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd-mm-yyyy")
+	@NotNull
 	@Column(name="created_at")
 	private Date createdAt;
 

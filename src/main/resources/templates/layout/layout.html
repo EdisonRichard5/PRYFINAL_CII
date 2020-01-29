@@ -100,8 +100,6 @@ li a:hover:not(.active) {
 				
 				
 				<ul class="navbar-nav navbar-right">
-				<li sec:authorize="!isAuthenticated()"><a
-										th:href="@{/usuario/create}"><i class="fas fa-sign-in-alt"></i>Registrarse</a></li>
 					
 					<li style="float:left" sec:authorize="!isAuthenticated()"><a
 						class="btn btn-outline-primary" th:href="@{/login}" th:text="#{text.layout.login}"></a></li>

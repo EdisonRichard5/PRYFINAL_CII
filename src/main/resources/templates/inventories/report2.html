@@ -8,54 +8,52 @@
 	<header th:replace="/layout/layout :: header"></header>
 			
 	 
-		<div class="card bg-light">
-			<div class="card-header" th:text="${title}"></div>
-			<div class="card-body"  style="text-align:center">
-				<div class="card-title"  style="text-align:center">
+		<div class="card bg-light"> 
 
 <div class="whole-wrap">
 		<div class="container box_1170">
 			<div class="section-top-border">
 				<div class="welcome_docmed_area">
-					<div class="row">
+					<div class="row align-items-center justify-content-center">
 					<div class="col-xl-5 col-lg-5">
 							<div class="welcome_thumb">
-								<div class="thumb_1">
+								<div class="thumb_1"  style="text-align:center">
+									
 									<label >Ingrese ID de los productos:</label>
 								
 								<input class="form-control"value=6 type="number" id="id1"onKeyUp="load()"/>						
-								<input class="form-control" value=12 type="number" id="id2"onKeyUp="load()"/>
-								<input class="form-control" value=38 type="number" id="id3"onKeyUp="load()"/>
-								
+								<input class="form-control" value=9 type="number" id="id2"onKeyUp="load()"/>
+								<input class="form-control" value=1 type="number" id="id3"onKeyUp="load()"/>
+						 
 								</div>
 								
 							</div>
 						</div>
-						<div class="col-xl-7 col-lg-7">
+						<div class="col-xl-9 col-lg-9">
 							<div class="welcome_docmed_info">
 									
 								<div class="container">
 									<div id="canvas-holder">
 										<canvas id="chart-area"></canvas>
-									</div>					
+									</div>	
+							<a 	th:href="@{/empleados/}" class="btn btn-xs btn-secondary">&laquo; volver</a>
+					
 								</div>
 
 							</div>
 						</div>
-							<a 	th:href="@{/empleados/}" class="btn btn-xs btn-secondary">&laquo; volver</a>
-						
+ 
+							
 					</div>
 
 				</div>
 			</div>
 		</div>
-	</div>
-	</div>
-		</div>
-	</div>
+	</div>	
+<br><br>	
+</div> 
 
 <footer th:replace="/layout/layout :: footer"></footer>
-
 	<script th:src="@{/js/inventario.js}"></script>
 
 </body>

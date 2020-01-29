@@ -30,48 +30,13 @@
 		crossorigin="anonymous"></script>
 </head>
 
- <style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-  border-right:1px solid #bbb;
-}
-
-li:last-child {
-  border-right: none;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #111;
-}
-
-.active {
-  background-color: #3346FF;
-}
-</style>
-
 
 <header th:fragment="menu">
           	
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
           
 			<a class="navbar-brand" th:href="@{'/'}"><img src="https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1426089174/se3kybrisls2hwrfmnmb.png"
-			 width="55" height="50"> Electro Pérez  | 		
+			 width="43" height="38"> Electro Pérez  | 		
  
 	 </a>
 	 
@@ -100,6 +65,8 @@ li a:hover:not(.active) {
 				
 				
 				<ul class="navbar-nav navbar-right">
+				<li sec:authorize="!isAuthenticated()"><a
+										th:href="@{/usuario/create}"><i class="fas fa-sign-in-alt"></i>Registrarse</a></li>
 					
 					<li style="float:left" sec:authorize="!isAuthenticated()"><a
 						class="btn btn-outline-primary" th:href="@{/login}" th:text="#{text.layout.login}"></a></li>
@@ -137,7 +104,7 @@ li a:hover:not(.active) {
 
 	<div class="container"></div>
 
-	<footer th:fragment="footer" class="container">
+	<footer th:fragment="footer" class="page-footer font-small mdb-color lighten-3 pt-4">
 		<hr />
 		<p sec:authorize="isAuthenticated()">
 		
@@ -146,6 +113,106 @@ li a:hover:not(.active) {
 				sec:authentication="principal.authorities"></span>
 		</p>
 		  
+		      	 
+   	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+             <!-- Footer Elements -->
+  <div class="container">
+
+    <!--Grid row-->
+    <div class="row">
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-12 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half">
+          <img src="https://www.volteck.com.mx/img/productos/LED-195P.png" class="img-fluid"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half">
+          <img src="http://www.cementoatenas.com/wp-content/uploads/2018/07/cemento-atenas-producto5.jpg" class="img-fluid"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half">
+          <img src="https://image.freepik.com/foto-gratis/imagen-martillo-viejo-clavos-mesa-fondo-gris_106006-168.jpg" class="img-fluid"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half">
+          <img src="https://www.demaquinasyherramientas.com/wp-content/uploads/2016/09/Tipos-de-Roscas.jpg" class="img-fluid"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-2 col-md-6 mb-4">
+
+        <!--Image-->
+        <div class="view overlay z-depth-1-half">
+          <img src="https://www.tubos-acero-aleacion.com/assets/images/tuberia-tubos-304l.jpg" class="img-fluid"
+            alt="">
+          <a href="">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Elaborado Por:
+    <a href="/"> Edison, Shirley </a>
+  </div>
+  <!-- Copyright -->
+ 
+	  
+	 </nav>
 	</footer>
 
 </body>

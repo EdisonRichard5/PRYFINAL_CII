@@ -6,10 +6,7 @@
 </head>
 <body>
 	<header th:replace="/layout/layout :: header"></header>
-
-	 	 
-				 
-				
+				 				
 	<div>
 		<div class="card bg-light">
 			<div class="card-header" th:text="${title}"></div>
@@ -25,7 +22,7 @@
 
 	<div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Reportes
+   <i class="material-icons">description</i> Reportes
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="/factura/report">Estadistica Productos más Vendidos</a>

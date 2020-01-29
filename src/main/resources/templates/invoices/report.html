@@ -9,46 +9,34 @@
 			
 	 
 		<div class="card bg-light">
-			<div class="card-header" th:text="${title}"></div>
-			<div class="card-body"  style="text-align:center">
+			  	
 				<div class="card-title"  style="text-align:center">
-
-
-	<div class="whole-wrap">
-		<div class="container box_1170">
-			<div class="section-top-border">
-				<div class="welcome_docmed_area">
-					<div class="row">
 						
-						<div class="col-xl-7 col-lg-7">
-							<div class="welcome_docmed_info">
-								<h2 th:text="${title}"></h2>							
-
-
-								<div class="container">
+	<div class="whole-wrap">
+	 			
+		<div class="container box_1170"  style="text-align:justify">
+			 
+				<div class="welcome_docmed_area">
+					<div class="row"> 
+	 					<div class="container">
 									<div id="canvas-holder">
 										<canvas id="chart-area"></canvas>
-									</div>					
-								</div>			
-	 			
-
-							</div>
-						</div>
-					 
-					</div>
-
-				</div>
 					<a 	th:href="@{/clientes/}" class="btn btn-xs btn-secondary">&laquo; volver</a>
-		
+				
+		 						</div>	
+							</div>					
+					 	</div>
+					</div>
+				</div>
+					
 			</div>
-		</div>
-	</div>			
-	</div>
-		</div>
-	</div>
+				
+		</div>	
+		 		
+</div> 
 <footer th:replace="/layout/layout :: footer"></footer>
 
-	<script th:src="@{/js/antecedente-report.js}"></script>
+	<script th:src="@{/js/factura.js}"></script>
 
 </body>
 </html>

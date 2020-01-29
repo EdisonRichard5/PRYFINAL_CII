@@ -55,9 +55,8 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	@Transactional(readOnly=true)
-	public Client findOne(Long id) {
-		//return clientDao.findOne(id); //Spring Boot 1.5.10
-		return clientDao.findById(id).orElse(null);	//Spring Boot 2
+	public Client findOne(Long id) { 
+		return clientDao.findById(id).orElse(null);	
 	}
 	
 	@Override
